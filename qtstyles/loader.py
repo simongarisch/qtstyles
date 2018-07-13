@@ -5,9 +5,9 @@ class Sheet(object):
     Keeps key information related to style sheets, particularly the path
     and contents as a string.
     >>> import os
-    >>> path = os.path.join("style_sheets", "default.qss")
+    >>> dirpath = os.path.dirname(os.path.abspath(__file__))
+    >>> path = os.path.join(dirpath, "style_sheets", "default.qss")
     >>> sheet = Sheet(path)
-    >>> sheet.load_contents()
     >>> isinstance(sheet.contents, str)
     True
     '''
@@ -21,13 +21,14 @@ class Sheet(object):
     
     @property
     def contents(self):
+        if self._contents is None:
+            self._load_contents()
         return self._contents
     
-    def load_contents(self):
+    def _load_contents(self):
         # loads the style sheet contents (if not already loaded)
-        if self.contents is None:
-            with open(self.path, "r") as f:
-                self._contents = f.read()
+        with open(self.path, "r") as f:
+            self._contents = f.read()
             
 
 def get_style_sheets():
@@ -39,7 +40,7 @@ def get_style_sheets():
     >>> isinstance(sheets, dict) # returns a dictionary
     True
     >>> first_sheet_name = sheets.keys()[0]
-    >>> first_sheet_object = sheets[first_sheet_name][0]
+    >>> first_sheet_object = sheets[first_sheet_name]
     >>> first_sheet_object.path.endswith(".qss") # these should all be .qss files
     True
     >>> "default" in sheets.keys() # there should be a 'default.qss' sheet available
@@ -48,9 +49,9 @@ def get_style_sheets():
     dirpath = os.path.dirname(os.path.abspath(__file__))
     
     sheets = {}
-    for sheet_name in os.listdir(os.path.join(dirpath, "style sheets")):
-        sheet_path = os.path.join(dirpath, sheet_name)
-        sheets[sheet_name.replace(".qss", "")] = [sheet_path, None]
+    for name in os.listdir(os.path.join(dirpath, "style sheets")):
+        path = os.path.join(dirpath, name)
+        sheets[name.replace(".qss", "")] = Sheet(path)
     return sheets
 
 
@@ -63,8 +64,16 @@ class StylePicker(object):
     '''
     sheets = get_style_sheets()
     
-    def __init__(self, style_name="default"):
-        pass
+    def __init__(self, style ="default"):
+        self._current_style = style
+
+    @property
+    def available_styles(self):
+        return self.sheets.keys()
+
+    @property
+    def current_style(self):
+        return self._current_style
     
     
 
