@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# pydev details
+.project
+.pydevproject
+
 # Distribution / packaging
 .Python
 env/
