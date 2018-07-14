@@ -1,10 +1,6 @@
-import warnings
+from qtpy import QtWidgets
 from loader import StylePicker
-try:
-    from qtpy import QtWidgets # requires qtpy
-except ImportError:
-    warnings.warn("qstyles basic demo requires qtpy")
-
+from widget import StylePickerWidget
 
 def run_demo(style="default"):
     ''' pick a style to run with this basic example '''
@@ -27,6 +23,7 @@ def run_demo(style="default"):
     grid.addWidget(QtWidgets.QLabel("Password"), 1, 0)
     grid.addWidget(QtWidgets.QLineEdit(), 0, 1)
     grid.addWidget(QtWidgets.QLineEdit(), 1, 1)
+    grid.addWidget(StylePickerWidget(), 2, 0)
     grid.addWidget(QtWidgets.QPushButton("Submit"), 2, 1)
     win.show()
 
