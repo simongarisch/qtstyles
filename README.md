@@ -13,3 +13,5 @@ Attribution, links and the associated licenses have been provided at the top of 
 If you'd like to add a style sheet please create a pull request and I'll be happy to take a look.
 
 ## What does it look like?
+The StylePickerWidget is in the bottom left hand side of the window:
+![qstyles demo](https://github.com/simongarisch/qstyles/blob/master/demo.PNG)
