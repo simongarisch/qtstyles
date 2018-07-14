@@ -6,9 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
-# pydev details
+# pydev and notebook details
 .project
 .pydevproject
+.ipynb_checkpoints/
 
 # Distribution / packaging
 .Python

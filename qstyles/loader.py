@@ -1,4 +1,5 @@
 import os
+import errors # defines errors for this package
 
 class Sheet(object):
     '''
@@ -12,6 +13,8 @@ class Sheet(object):
     True
     '''
     def __init__(self, path):
+        if not path.endswith(".qss"):
+            raise errors.NotValidSheetError
         self._path = path
         self._contents = None # to be loaded on request
         
@@ -50,7 +53,7 @@ def get_style_sheets():
     
     sheets = {}
     for name in os.listdir(os.path.join(dirpath, "style sheets")):
-        path = os.path.join(dirpath, name)
+        path = os.path.join(dirpath, "style sheets", name)
         sheets[name.replace(".qss", "")] = Sheet(path)
     return sheets
 
@@ -65,19 +68,26 @@ class StylePicker(object):
     sheets = get_style_sheets()
     
     def __init__(self, style ="default"):
-        self._current_style = style
+        self.style = style
+
+    def get_sheet(self):
+        return self.sheets[self.style].contents
+
+    @property
+    def style(self):
+        return self._style
+
+    @style.setter
+    def style(self, style):
+        if style not in self.available_styles:
+            raise errors.StyleDoesntExistError
+        self._style = style
 
     @property
     def available_styles(self):
         return self.sheets.keys()
-
-    @property
-    def current_style(self):
-        return self._current_style
     
     
-
-
 def main():
     sheets = get_style_sheets()
     print(sheets)

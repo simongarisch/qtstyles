@@ -1,8 +1,14 @@
-from PyQt5 import QtWidgets
-from .loader import get_style_sheets
+import warnings
+from loader import StylePicker
+try:
+    from qtpy import QtWidgets # requires qtpy
+except ImportError:
+    warnings.warn("qstyles basic demo requires qtpy")
 
-def run_demo():
-    style_sheets = get_style_sheets()
+
+def run_demo(style="default"):
+    ''' pick a style to run with this basic example '''
+    picker = StylePicker()
     
     app = QtWidgets.QApplication.instance()
     if not app:
@@ -24,7 +30,7 @@ def run_demo():
     grid.addWidget(QtWidgets.QPushButton("Submit"), 2, 1)
     win.show()
 
-    app.setStyleSheet(style_sheets[1].read())
+    app.setStyleSheet(StylePicker(style).get_sheet())
     app.exec_()
 
 
