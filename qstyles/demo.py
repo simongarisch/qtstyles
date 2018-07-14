@@ -2,8 +2,20 @@ from qtpy import QtWidgets
 from loader import StylePicker
 from widget import StylePickerWidget
 
-def run_demo(style="default"):
-    ''' pick a style to run with this basic example '''
+'''
+Includes a run_demo() function that acts as a basic demo for our 
+   StylePicker and StylePickerWidget classes
+'''
+
+def run_demo():
+    '''
+    This function provides a demonstration in changing the application style sheet.
+    1) The first option is to set the style sheet once with 
+       app.setStyleSheet(StylePicker("default").get_sheet())
+    2) The second option is to include a style picker widget (QComboBox) that'll 
+       change the application style sheet when a new style is selected 
+       grid.addWidget(StylePickerWidget(), 2, 0)
+    '''
     picker = StylePicker()
     
     app = QtWidgets.QApplication.instance()
@@ -27,12 +39,13 @@ def run_demo(style="default"):
     grid.addWidget(QtWidgets.QPushButton("Submit"), 2, 1)
     win.show()
 
-    app.setStyleSheet(StylePicker(style).get_sheet())
+    app.setStyleSheet(StylePicker("default").get_sheet())
     app.exec_()
 
-
+'''
 def main():
     run_demo()
 
 if __name__ == "__main__":
     main()
+'''

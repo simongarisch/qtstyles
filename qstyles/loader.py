@@ -1,6 +1,18 @@
 import os
 import errors # defines errors for this package
 
+'''
+Defines the following ...
+
+Sheet: a class representing a style sheet object with attributes such as path and contents
+
+get_style_sheets: a function that returns a dictionary with style sheet names as keys and 
+   sheet objects as values
+   
+StylePicker: a class that allows us to pick style sheets and collect their style sheet contents
+   with get_sheet()
+'''
+
 class Sheet(object):
     '''
     Keeps key information related to style sheets, particularly the path
@@ -13,17 +25,24 @@ class Sheet(object):
     True
     '''
     def __init__(self, path):
+        ''' This constructor only takes one argument being the sheet path.
+            path = the path to a qss file... must be a string and end with '.qss'
+        '''
+        if not isinstance(path, str):
+            raise errors.SheetPathTypeError
         if not path.endswith(".qss"):
-            raise errors.NotValidSheetError
+            raise errors.SheetPathValueError
         self._path = path
         self._contents = None # to be loaded on request
         
     @property
     def path(self):
+        # collect the path as a sheet attribute
         return self._path
     
     @property
     def contents(self):
+        # the style sheet contents will load only once when needed
         if self._contents is None:
             self._load_contents()
         return self._contents
@@ -42,11 +61,8 @@ def get_style_sheets():
     >>> sheets = get_style_sheets()
     >>> isinstance(sheets, dict) # returns a dictionary
     True
-    >>> first_sheet_name = sheets.keys()[0]
-    >>> first_sheet_object = sheets[first_sheet_name]
-    >>> first_sheet_object.path.endswith(".qss") # these should all be .qss files
-    True
-    >>> "default" in sheets.keys() # there should be a 'default.qss' sheet available
+    >>> sheet_object = sheets["default"] # there should be a 'default.qss' sheet available
+    >>> sheet_object.path.endswith(".qss") # these should all be .qss files
     True
     '''
     dirpath = os.path.dirname(os.path.abspath(__file__))
@@ -60,10 +76,16 @@ def get_style_sheets():
 
 class StylePicker(object):
     '''
-    Returns a string containing the style sheet contents for a requested style name.
+    The StylePicker class has the following properties:
+      style: the current selected style
+      available_styles: a list of strings representing all of the styles available
+      
+    And the following methods:
+      __init__(style='default'): the constructor takes one argument being the selected style
+      get_sheet(): returns a string being the style sheet contents for our selected style
+      
     'sheets' is a class attribute that'll act as a shared resource for all StylePicker
     objects. There is no point fetching the sheets data multiple times as it is static.
-    
     '''
     sheets = get_style_sheets()
     
@@ -86,11 +108,13 @@ class StylePicker(object):
     @property
     def available_styles(self):
         return self.sheets.keys()
-    
-    
+
+ 
+'''
 def main():
     sheets = get_style_sheets()
     print(sheets)
 
 if __name__ == "__main__":
     main()
+'''
