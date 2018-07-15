@@ -6,4 +6,4 @@ else:
     from .demo import run_demo
     from .widget import StylePickerWidget
 
-from .loader import StylePicker
+from .loader import Sheet, StylePicker

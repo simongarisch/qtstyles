@@ -9,13 +9,19 @@ class QStylesError(Exception):
 class SheetPathTypeError(QStylesError):
     ''' The style sheet path must be a string '''
     def __init__(self):
-        super(NotValidSheetError, self).__init__("The style sheet path must be a string!")
+        super(SheetPathTypeError, self).__init__("The style sheet path must be a string!")
 
 
 class SheetPathValueError(QStylesError):
     ''' The style sheet path end in '.qss' '''
     def __init__(self):
-        super(NotValidSheetError, self).__init__("The style sheet path must end in '.qss'!")
+        super(SheetPathValueError, self).__init__("The style sheet path must end in '.qss'!")
+        
+        
+class SheetPathFileDoesntExist(QStylesError):
+    ''' The style sheet path must point to a file that exists '''
+    def __init__(self):
+        super(SheetPathFileDoesntExist, self).__init__("No file exists at the path specified!")
 
 
 class StyleDoesntExistError(QStylesError):

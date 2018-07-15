@@ -19,7 +19,7 @@ class Sheet(object):
     and contents as a string.
     >>> import os
     >>> dirpath = os.path.dirname(os.path.abspath(__file__))
-    >>> path = os.path.join(dirpath, "style_sheets", "default.qss")
+    >>> path = os.path.join(dirpath, "style sheets", "default.qss")
     >>> sheet = Sheet(path)
     >>> isinstance(sheet.contents, str)
     True
@@ -32,6 +32,8 @@ class Sheet(object):
             raise errors.SheetPathTypeError
         if not path.endswith(".qss"):
             raise errors.SheetPathValueError
+        if not os.path.isfile(path):
+            raise errors.SheetPathFileDoesntExist
         self._path = path
         self._contents = None # to be loaded on request
         
@@ -109,11 +111,16 @@ class StylePicker(object):
     def available_styles(self):
         return self.sheets.keys()
 
- 
+
 '''
 def main():
     sheets = get_style_sheets()
-    print(sheets)
+    print(sheets) # dict with style name in keys and sheet objects in values
+    
+    picker = StylePicker()
+    available_styles = picker.available_styles
+    picker.style = "qtdark" if "qtdark" in available_styles else "default"
+    print(isinstance(picker.get_sheet(), str))
 
 if __name__ == "__main__":
     main()
