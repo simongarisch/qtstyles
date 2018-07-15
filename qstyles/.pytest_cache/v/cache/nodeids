@@ -1,0 +1,16 @@
+[
+  "loader.py::qstyles.loader.Sheet", 
+  "loader.py::qstyles.loader.get_style_sheets", 
+  "tests/test_errors.py::TestErrors::()::test_errors", 
+  "tests/test_get_style_sheets.py::TestGetStyleSheets::()::test_all_keys", 
+  "tests/test_get_style_sheets.py::TestGetStyleSheets::()::test_all_values", 
+  "tests/test_get_style_sheets.py::TestGetStyleSheets::()::test_sheet_files_exist", 
+  "tests/test_sheet.py::TestSheet::()::test_init", 
+  "tests/test_sheet.py::TestSheet::()::test_path_is_string", 
+  "tests/test_sheet.py::TestSheet::()::test_path_ends_qss", 
+  "tests/test_sheet.py::TestSheet::()::test_path_must_exist", 
+  "tests/test_style_picker.py::TestStylePicker::()::test_default_style", 
+  "tests/test_style_picker.py::TestStylePicker::()::test_get_sheet", 
+  "tests/test_style_picker.py::TestStylePicker::()::test_available_styles", 
+  "tests/test_style_picker.py::TestStylePicker::()::test_style_attribute"
+]
