@@ -24,6 +24,6 @@ class TestStylePickerWidget(object):
         qtbot.addWidget(self.picker_widget)
         text = self.picker_widget.itemText(0)
         self.picker_widget.setCurrentIndex(0)
-        assert self.picker_widget.currentText == text
+        assert self.picker_widget.currentText() == text
         # also check the app style sheet is changed
         
