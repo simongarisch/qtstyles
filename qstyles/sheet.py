@@ -8,9 +8,6 @@ Sheet: a class representing a style sheet object with attributes such as path an
 
 get_style_sheets: a function that returns a dictionary with style sheet names as keys and 
    sheet objects as values
-   
-StylePicker: a class that allows us to pick style sheets and collect their style sheet contents
-   with get_sheet()
 '''
 
 class Sheet(object):
@@ -74,54 +71,3 @@ def get_style_sheets():
         path = os.path.join(dirpath, "style sheets", name)
         sheets[name.replace(".qss", "")] = Sheet(path)
     return sheets
-
-
-class StylePicker(object):
-    '''
-    The StylePicker class has the following properties:
-      style: the current selected style
-      available_styles: a list of strings representing all of the styles available
-      
-    And the following methods:
-      __init__(style='default'): the constructor takes one argument being the selected style
-      get_sheet(): returns a string being the style sheet contents for our selected style
-      
-    'sheets' is a class attribute that'll act as a shared resource for all StylePicker
-    objects. There is no point fetching the sheets data multiple times as it is static.
-    '''
-    sheets = get_style_sheets()
-    
-    def __init__(self, style ="default"):
-        self.style = style
-
-    def get_sheet(self):
-        return self.sheets[self.style].contents
-
-    @property
-    def style(self):
-        return self._style
-
-    @style.setter
-    def style(self, style):
-        if style not in self.available_styles:
-            raise errors.StyleDoesntExistError
-        self._style = style
-
-    @property
-    def available_styles(self):
-        return self.sheets.keys()
-
-
-'''
-def main():
-    sheets = get_style_sheets()
-    print(sheets) # dict with style name in keys and sheet objects in values
-    
-    picker = StylePicker()
-    available_styles = picker.available_styles
-    picker.style = "qtdark" if "qtdark" in available_styles else "default"
-    print(isinstance(picker.get_sheet(), str))
-
-if __name__ == "__main__":
-    main()
-'''

@@ -1,0 +1,4 @@
+[
+  "qstyles/loader.py::qstyles.loader.Sheet", 
+  "qstyles/loader.py::qstyles.loader.get_style_sheets"
+]

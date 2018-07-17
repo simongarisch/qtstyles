@@ -12,7 +12,7 @@ class StylePickerWidget(QtWidgets.QComboBox):
         ''' constructor only takes the parent widget as an argument '''
         super(StylePickerWidget, self).__init__(parent)
         self.addItems(StylePicker().available_styles)
-        self.setCurrentIndex(self.findText("default")) 
+        self.setCurrentIndex(self.findText("default"))
         self.currentIndexChanged.connect(self.change_app_style)
         
     def change_app_style(self, index=None):
