@@ -1,8 +1,0 @@
-{
-  "tests/test_demo.py": true, 
-  "tests/test_errors.py": true, 
-  "tests/test_get_style_sheets.py": true, 
-  "tests/test_sheet.py": true, 
-  "tests/test_style_picker.py": true, 
-  "tests/test_style_picker_widget.py": true
-}
