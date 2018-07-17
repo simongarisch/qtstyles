@@ -10,6 +10,7 @@ __pycache__/
 .project
 .pydevproject
 .ipynb_checkpoints/
+.pytest_cache
 
 # Distribution / packaging
 .Python
