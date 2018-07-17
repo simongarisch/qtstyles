@@ -1,6 +1,6 @@
 import random
 from qtpy import QtWidgets, QtCore
-from loader import StylePicker
+from picker import StylePicker
 from widget import StylePickerWidget
 
 '''
@@ -70,6 +70,7 @@ def run_demo(close_after=None, auto_test=False):
 
     app.setStyleSheet(StylePicker("default").get_sheet())
     app.exec_()
+
 
 '''
 def main():

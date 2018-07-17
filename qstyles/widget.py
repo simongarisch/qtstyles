@@ -22,6 +22,7 @@ class StylePickerWidget(QtWidgets.QComboBox):
         if app is not None:
             app.setStyleSheet(StylePicker(style).get_sheet())
             
+
 '''
 def main():
     app = QtWidgets.QApplication.instance()
