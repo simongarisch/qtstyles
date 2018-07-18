@@ -10,12 +10,12 @@ from qstyles.sheet import get_style_sheets
 class StylePicker(object):
     '''
     The StylePicker class has the following properties:
-      style: the current selected style
-      available_styles: a list of strings representing all of the styles available
+    style: the current selected style
+    available_styles: a list of strings representing all of the styles available
 
     And the following methods:
-      __init__(style='default'): the constructor takes one argument being the selected style
-      get_sheet(): returns a string being the style sheet contents for our selected style
+    __init__(style='default'): the constructor takes one argument being the selected style
+    get_sheet(): returns a string being the style sheet contents for our selected style
 
     'sheets' is a class attribute that'll act as a shared resource for all StylePicker
     objects. There is no point fetching the sheets data multiple times as it is static.
