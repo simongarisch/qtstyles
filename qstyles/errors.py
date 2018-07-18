@@ -16,8 +16,8 @@ class SheetPathValueError(QStylesError):
     ''' The style sheet path end in '.qss' '''
     def __init__(self):
         super(SheetPathValueError, self).__init__("The style sheet path must end in '.qss'!")
-        
-        
+
+
 class SheetPathFileDoesntExist(QStylesError):
     ''' The style sheet path must point to a file that exists '''
     def __init__(self):

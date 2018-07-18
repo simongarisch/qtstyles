@@ -1,9 +1,10 @@
-from loader import StylePicker
-from qtpy import QtWidgets
-
 '''
 Defines only the StylePickerWidget class which inherits from QComboBox
 '''
+
+from qtpy import QtWidgets
+from qstyles.loader import StylePicker
+
 
 class StylePickerWidget(QtWidgets.QComboBox):
     ''' This QComboBox will allow the user to change the application
@@ -14,17 +15,18 @@ class StylePickerWidget(QtWidgets.QComboBox):
         self.addItems(StylePicker().available_styles)
         self.setCurrentIndex(self.findText("default"))
         self.currentIndexChanged.connect(self.change_app_style)
-        
+
     def change_app_style(self, index=None):
         ''' this method fires when a new style is selected '''
         style = self.currentText()
         app = QtWidgets.QApplication.instance()
         if app is not None:
             app.setStyleSheet(StylePicker(style).get_sheet())
-            
 
-'''
+
+"""
 def main():
+    ''' a quick demo of our StylePickerWidget class '''
     app = QtWidgets.QApplication.instance()
     if not app:
         app = QtWidgets.QApplication([])
@@ -35,7 +37,7 @@ def main():
     win.setCentralWidget(picker_widget)
     win.show()
     app.exec_()
-        
+
 if __name__ == "__main__":
     main()
-'''
+"""

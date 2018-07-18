@@ -1,11 +1,16 @@
+'''
+Qt based functionality such as the StylePickerWidget and run_demo
+will not be imported if qtpy is not installed.
+'''
+
 import os
 import warnings
 import random
 
 try:
-    from qtpy import QtWidgets, QtCore # requires qtpy
+    from qtpy import QtWidgets, QtCore
 except ImportError:
-    warnings.warn("qstyles run_demo and StylePickerWidget requires qtpy to be installed.", ImportWarning)
+    warnings.warn("qstyles Qt functionality requires qtpy to be installed.", ImportWarning)
 else:
     from .demo import run_demo
     from .widget import StylePickerWidget

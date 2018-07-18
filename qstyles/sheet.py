@@ -1,14 +1,15 @@
-import os
-import errors # defines errors for this package
-
 '''
 Defines the following ...
 
 Sheet: a class representing a style sheet object with attributes such as path and contents
 
-get_style_sheets: a function that returns a dictionary with style sheet names as keys and 
-   sheet objects as values
+get_style_sheets: a function that returns a dictionary with style sheet names as keys and
+sheet objects as values
 '''
+
+import os
+from qstyles import errors
+
 
 class Sheet(object):
     '''
@@ -33,24 +34,24 @@ class Sheet(object):
             raise errors.SheetPathFileDoesntExist
         self._path = path
         self._contents = None # to be loaded on request
-        
+
     @property
     def path(self):
-        # collect the path as a sheet attribute
+        ''' collect the path as a sheet attribute '''
         return self._path
-    
+
     @property
     def contents(self):
-        # the style sheet contents will load only once when needed
+        ''' the style sheet contents will load only once when needed '''
         if self._contents is None:
             self._load_contents()
         return self._contents
-    
+
     def _load_contents(self):
-        # loads the style sheet contents (if not already loaded)
-        with open(self.path, "r") as f:
-            self._contents = f.read()
-            
+        ''' loads the style sheet contents (if not already loaded) '''
+        with open(self.path, "r") as qss_file:
+            self._contents = qss_file.read()
+
 
 def get_style_sheets():
     '''
@@ -65,7 +66,7 @@ def get_style_sheets():
     True
     '''
     dirpath = os.path.dirname(os.path.abspath(__file__))
-    
+
     sheets = {}
     for name in os.listdir(os.path.join(dirpath, "style sheets")):
         path = os.path.join(dirpath, "style sheets", name)
