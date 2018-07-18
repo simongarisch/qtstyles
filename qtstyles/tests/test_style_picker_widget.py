@@ -1,7 +1,7 @@
 '''
 test the StylePickerWidget class
 '''
-from qstyles import StylePicker, StylePickerWidget
+from qtstyles import StylePicker, StylePickerWidget
 
 
 def test_displayed_styles(qtbot):

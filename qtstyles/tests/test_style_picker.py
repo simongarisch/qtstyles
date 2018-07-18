@@ -2,7 +2,7 @@
 test the StylePicker class
 '''
 import pytest
-from qstyles import errors, StylePicker
+from qtstyles import errors, StylePicker
 
 
 class TestStylePicker(object):

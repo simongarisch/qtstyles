@@ -5,8 +5,8 @@ StylePicker and StylePickerWidget classes
 
 import random
 from qtpy import QtWidgets, QtCore
-from qstyles.picker import StylePicker
-from qstyles.widget import StylePickerWidget
+from qtstyles.picker import StylePicker
+from qtstyles.widget import StylePickerWidget
 
 
 def run_demo(close_after=None, auto_test=False):

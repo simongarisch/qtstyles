@@ -1,7 +1,7 @@
 '''
-test the qstyles run_demo function
+test the qtstyles run_demo function
 '''
-from qstyles import run_demo
+from qtstyles import run_demo
 
 
 def test_demo_auto_test():

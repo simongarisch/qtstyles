@@ -2,7 +2,7 @@
 testing the get_style_sheets function
 '''
 import os
-from qstyles import get_style_sheets, Sheet
+from qtstyles import get_style_sheets, Sheet
 
 
 class TestGetStyleSheets(object):

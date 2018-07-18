@@ -3,7 +3,7 @@ test the Sheet class
 '''
 import os
 import pytest
-from qstyles import errors, Sheet
+from qtstyles import errors, Sheet
 
 
 def test_init():

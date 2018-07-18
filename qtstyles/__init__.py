@@ -10,7 +10,7 @@ import random
 try:
     from qtpy import QtWidgets, QtCore
 except ImportError:
-    warnings.warn("qstyles Qt functionality requires qtpy to be installed.", ImportWarning)
+    warnings.warn("qtstyles Qt functionality requires qtpy to be installed.", ImportWarning)
 else:
     from .demo import run_demo
     from .widget import StylePickerWidget

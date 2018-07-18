@@ -8,7 +8,7 @@ sheet objects as values
 '''
 
 import os
-from qstyles import errors
+from qtstyles import errors
 
 
 class Sheet(object):

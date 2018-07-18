@@ -3,7 +3,7 @@ Defines only the StylePickerWidget class which inherits from QComboBox
 '''
 
 from qtpy import QtWidgets
-from qstyles.picker import StylePicker
+from qtstyles.picker import StylePicker
 
 
 class StylePickerWidget(QtWidgets.QComboBox):

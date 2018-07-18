@@ -2,12 +2,12 @@
 test that all of the errors are getting raised correctly
 '''
 import pytest
-from qstyles import errors
+from qtstyles import errors
 
 
 def test_errors():
     ''' make sure these can all be raised without issue '''
-    errors_list = [errors.QStylesError,
+    errors_list = [errors.QtStylesError,
                    errors.SheetPathTypeError,
                    errors.SheetPathValueError,
                    errors.StyleDoesntExistError]

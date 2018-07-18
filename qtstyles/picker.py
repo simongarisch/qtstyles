@@ -3,8 +3,8 @@ Defines StylePicker: a class that allows us to pick style sheets and collect the
 style sheet contents with get_sheet()
 '''
 
-from qstyles import errors
-from qstyles.sheet import get_style_sheets
+from qtstyles import errors
+from qtstyles.sheet import get_style_sheets
 
 
 class StylePicker(object):
