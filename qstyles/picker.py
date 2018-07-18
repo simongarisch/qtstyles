@@ -43,5 +43,6 @@ class StylePicker(object):
 
     @property
     def available_styles(self):
-        ''' returns a list of all available styles we can choose from '''
-        return self.sheets.keys()
+        ''' returns a list of all available styles we can choose from
+            Note that dict.keys() will return a list in py2 but a dict_keys object in py3 '''
+        return list(self.sheets.keys())

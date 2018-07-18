@@ -1,5 +1,7 @@
-rem call activate py27
-rem for distributed testing rem pip install pytest-xdist
+call activate py27
 py.test --cov-report html --cov --doctest-modules --cache-clear
-rem --verbose
+
+call activate py36
+py.test --cov-report html --cov --doctest-modules --cache-clear
+
 pause
