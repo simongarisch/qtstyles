@@ -6,6 +6,10 @@ virtualenv:
 python:
   - "2.7"
   - "3.6"
+
+before_install:
+  - "pip install -U pip"
+  - "python setup.py install"
   
 install:
   # Adopted from https://github.com/fchollet/keras/blob/master/.travis.yml.
