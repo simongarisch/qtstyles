@@ -1,11 +1,11 @@
 language: python
 
+virtualenv:
+  system_site_packages: true
+
 python:
   - "2.7"
   - "3.6"
-  
-# virtualenv:
-#  system_site_packages: true
   
 install:
   # Adopted from https://github.com/fchollet/keras/blob/master/.travis.yml.
