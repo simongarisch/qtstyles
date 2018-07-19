@@ -1,8 +1,15 @@
-# qstyles
+# qtstyles
 ## What is it?
-A collection of Qt Style Sheets accompanied by:
-* class StylePicker: pick style sheets and collect their contents with 'get_sheet()'.
-* class StylePickerWidget: (inherits from QComboBox) select a style and the application will update to the selected style sheet.
+A collection of Qt Style Sheets accompanied by useful classes. Provided are two ways to change your Qt application style sheet:
+
+* With the StylePicker class...
+```python
+s = "Python syntax highlighting"
+print s
+```
+
+* StylePicker: pick a style and get the style sheet with 'get_sheet()'. the 'available_styles' attribute returns a list of available styles.
+* StylePickerWidget (inherits from QComboBox): pick a style from the widget and you application style sheet will update.
 
 See the 'Overview Notebook.ipynb' for additional details.
 
