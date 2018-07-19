@@ -1,4 +1,0 @@
-QtPy==1.4.1
-pytest_qt==2.4.1
-pytest==3.5.1
-loader==2017.9.11
