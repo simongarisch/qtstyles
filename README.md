@@ -1,7 +1,7 @@
 # qtstyles
 A collection of Qt Style Sheets accompanied by useful classes. **Two ways** to change your Qt application style sheet:
 
-1. With the **StylePicker** class...
+## 1. With the StylePicker class...
 
 View available styles with:
 ```python
@@ -22,7 +22,7 @@ win.show()
 app.exec_()
 ```
 
-2. We can also change the style sheet with an instance of **StylePickerWidget** (inherits from QComboBox):
+## 2. We can also change the style sheet with an instance of StylePickerWidget (inherits from QComboBox):
 ```python
 from qtpy import QtWidgets
 from qtstyles import StylePickerWidget
