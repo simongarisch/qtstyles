@@ -4,11 +4,14 @@ python:
   - "2.7"
   - "3.6"
   
-# command to install dependencies
-install:
+ virtualenv:
+  system_site_packages: true
+  
+ before_install:
   - sudo apt-get update
   - sudo apt-get -y install python3-pyqt5
+  
+install:
   - pip install -r requirements.txt
   
-# command to run tests
 script: pytest
