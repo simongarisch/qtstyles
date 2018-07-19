@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/simongarisch/qtstyles.svg?branch=master)](https://travis-ci.org/simongarisch/qtstyles)
+
 # qtstyles
 A collection of Qt Style Sheets accompanied by useful classes. **Two ways** to change your Qt application style sheet:
 
