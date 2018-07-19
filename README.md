@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/simongarisch/qtstyles.svg?branch=master)](https://travis-ci.org/simongarisch/qtstyles)
-
 [![Coverage Status](https://coveralls.io/repos/github/simongarisch/qtstyles/badge.svg?branch=master)](https://coveralls.io/github/simongarisch/qtstyles?branch=master)
 
 # qtstyles
