@@ -1,15 +1,40 @@
 # qtstyles
 ## What is it?
-A collection of Qt Style Sheets accompanied by useful classes. Provided are two ways to change your Qt application style sheet:
+A collection of Qt Style Sheets accompanied by useful classes. Two ways to change your Qt application style sheet:
 
 * With the StylePicker class...
+
+View available styles with:
 ```python
-s = "Python syntax highlighting"
-print s
+from qtstyles import StylePicker
+
+StylePicker().available_styles
 ```
 
-* StylePicker: pick a style and get the style sheet with 'get_sheet()'. the 'available_styles' attribute returns a list of available styles.
-* StylePickerWidget (inherits from QComboBox): pick a style from the widget and you application style sheet will update.
+And change the Qt application style using the get_sheet() method:
+```python
+from qtpy import QtWidgets
+from qtstyles import StylePicker
+
+app = QtWidgets.QApplication([])
+win = QtWidgets.QMainWindow()
+app.setStyleSheet(StylePicker("qdark").get_sheet()) # <-- changing the style here
+win.show()
+app.exec_()
+```
+
+* We can also change the style sheet with an instance of StylePickerWidget (inherits from QComboBox):
+```python
+from qtpy import QtWidgets
+from qtstyles import StylePickerWidget
+
+app = QtWidgets.QApplication([])
+win = QtWidgets.QMainWindow()
+picker_widget = StylePickerWidget()
+win.setCentralWidget(picker_widget)
+win.show()
+app.exec_()
+```
 
 See the 'Overview Notebook.ipynb' for additional details.
 
