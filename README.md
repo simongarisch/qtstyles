@@ -1,7 +1,7 @@
 # qtstyles
 A collection of Qt Style Sheets accompanied by useful classes. **Two ways** to change your Qt application style sheet:
 
-## 1. With the StylePicker class...
+## 1. With the StylePicker class
 
 View available styles with:
 ```python
@@ -22,14 +22,14 @@ win.show()
 app.exec_()
 ```
 
-## 2. We can also change the style sheet with an instance of StylePickerWidget (inherits from QComboBox):
+## 2. We can also change the style sheet with an instance of StylePickerWidget (inherits from QComboBox)
 ```python
 from qtpy import QtWidgets
 from qtstyles import StylePickerWidget
 
 app = QtWidgets.QApplication([])
 win = QtWidgets.QMainWindow()
-picker_widget = StylePickerWidget()
+picker_widget = StylePickerWidget() # <-- this QComboBox allows the user to change style sheets
 win.setCentralWidget(picker_widget)
 win.show()
 app.exec_()
@@ -37,12 +37,12 @@ app.exec_()
 
 See the 'Overview Notebook.ipynb' for additional details.
 
-## Motivation?
-When looking for qt ('.qss') style sheets most were scattered across different sites. 
+## Motivation
+When looking for Qt ('.qss') style sheets most were scattered across different sites. 
 Disclaimer: I've collected these style sheets from different repositories and they are not my own work.
 Attribution, links and the associated licenses have been provided at the top of each qss file.
 If you'd like to add a style sheet please create a pull request and I'll be happy to take a look.
 
-## What does it look like?
-The StylePickerWidget is in the bottom left hand side of the window:
+## What does it look like
+The StylePickerWidget is in the bottom left hand side of this window:
 ![qstyles demo](https://github.com/simongarisch/qstyles/blob/master/demo.PNG)
