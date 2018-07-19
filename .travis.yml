@@ -4,8 +4,8 @@ python:
   - "2.7"
   - "3.6"
   
- virtualenv:
-  system_site_packages: true
+# virtualenv:
+#  system_site_packages: true
   
 install:
   # Adopted from https://github.com/fchollet/keras/blob/master/.travis.yml.
@@ -29,5 +29,5 @@ install:
 script:
   - py.test
 
-after_success:
-  - coveralls
+#after_success:
+#  - coveralls
