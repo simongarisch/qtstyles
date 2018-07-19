@@ -21,7 +21,7 @@ install:
   - conda update -q conda
   
   # make sure that pyqt is installed
-  conda install -c anaconda pyqt 
+  - conda install -c anaconda pyqt 
   
   # also install requirements .txt
   - pip install -r requirements.txt
