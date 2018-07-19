@@ -27,7 +27,7 @@ install:
   - pip install -r requirements.txt
   
 script:
-  - py.test --doctest-modules
+  - py.test
 
 after_success:
   - coveralls
