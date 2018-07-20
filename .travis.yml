@@ -29,7 +29,7 @@ script:
   #  else
   #    pytest;
   #  fi
-  - pytest
+  - pytest --doctest-modules
 
 after_success:
   - coveralls
