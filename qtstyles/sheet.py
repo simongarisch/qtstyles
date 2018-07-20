@@ -17,7 +17,7 @@ class Sheet(object):
     and contents as a string.
     >>> import os
     >>> dirpath = os.path.dirname(os.path.abspath(__file__))
-    >>> path = os.path.join(dirpath, "style sheets", "default.qss")
+    >>> path = os.path.join(dirpath, "style_sheets", "default.qss")
     >>> sheet = Sheet(path)
     >>> isinstance(sheet.contents, str)
     True
@@ -68,7 +68,10 @@ def get_style_sheets():
     dirpath = os.path.dirname(os.path.abspath(__file__))
 
     sheets = {}
-    for name in os.listdir(os.path.join(dirpath, "style sheets")):
-        path = os.path.join(dirpath, "style sheets", name)
+    for name in os.listdir(os.path.join(dirpath, "style_sheets")):
+        if "__" in name:
+            # exclude any files with a double underscore (e.g. __init__, __pycache__)
+            continue
+        path = os.path.join(dirpath, "style_sheets", name)
         sheets[name.replace(".qss", "")] = Sheet(path)
     return sheets

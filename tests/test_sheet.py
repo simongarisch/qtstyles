@@ -9,7 +9,7 @@ from qtstyles import errors, Sheet
 def test_init():
     ''' check that the sheet has a correct path and contents '''
     dirpath = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(dirpath, "..", "qtstyles", "style sheets", "default.qss")
+    path = os.path.join(dirpath, "..", "qtstyles", "style_sheets", "default.qss")
     sheet = Sheet(path)
     assert sheet.path == path
     assert isinstance(sheet.contents, str)
