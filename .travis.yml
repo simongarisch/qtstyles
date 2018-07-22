@@ -19,12 +19,6 @@ install:
   #    pip install pyqt5;
   #  fi
   
-  # Setup miniconda
-  # https://github.com/pytest-dev/pytest-qt/blob/master/.travis.yml
-  # https://github.com/astropy/ci-helpers
-  - git clone --depth 1 git://github.com/astropy/ci-helpers.git
-  - CONDA_DEPENDENCIES="${DEPS} ${PYQT_PACKAGE}" source ci-helpers/travis/setup_conda.sh
-  - source activate test && pip install -e .
   - pip install pyqt5
   
   # also install requirements .txt
