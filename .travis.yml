@@ -8,7 +8,8 @@ python:
 before_install:
   - pip install -U pip
   - python setup.py install
-  - pip install pytest pytest-cov 
+  - pip install pytest
+  - pip install pytest-cov
   - pip install coveralls
   
 install:
@@ -45,9 +46,9 @@ before_script:
   
 script:
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      py.test --cov --doctest-modules;
+      py.test --cov-report html --cov --doctest-modules;
     else
-      pytest --cov --doctest-modules;
+      pytest --cov-report html --cov --doctest-modules;
     fi
 
 after_success:
