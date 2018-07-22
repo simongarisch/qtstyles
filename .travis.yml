@@ -1,8 +1,5 @@
 language: python
 
-#virtualenv:
-#  system_site_packages: true
-
 python:
 #  - "2.7"
   - "3.6"
@@ -24,6 +21,13 @@ install:
   # also install requirements .txt
   - pip install -r requirements.txt
   
+before_script:
+  # From the travis docs: https://docs.travis-ci.com/user/gui-and-headless-browsers/
+  # To run tests requiring a graphical user interface on Travis CI, use xvfb (X Virtual Framebuffer)
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3 # give xvfb some time to start
+  
 script:
   #- if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
   #    py.test;
@@ -33,4 +37,7 @@ script:
   - pytest --doctest-modules
 
 after_success:
+  - pip install python-coveralls
+  - pip install codecov
   - coveralls
+  - codecov
