@@ -4,9 +4,12 @@ python:
   - "2.7"
   - "3.6"
 
+ # https://ilovesymposia.com/2014/10/15/continuous-integration-in-python-5-report-test-coverage-using-coveralls/
 before_install:
   - pip install -U pip
   - python setup.py install
+  - pip install pytest pytest-cov 
+  - pip install coveralls
   
 install:
   # installing conda -> https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
@@ -29,9 +32,6 @@ install:
     else
       pip install pyqt5;
     fi
-  
-  # adding in for coveralls coverage testing
-  - pip install python-coveralls
   
   # also install requirements .txt
   - pip install -r requirements.txt
