@@ -45,9 +45,9 @@ before_script:
   
 script:
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      py.test --doctest-modules;
+      py.test --cov --doctest-modules;
     else
-      pytest --doctest-modules;
+      pytest --cov --doctest-modules;
     fi
 
 after_success:
