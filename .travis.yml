@@ -46,9 +46,9 @@ before_script:
   
 script:
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      py.test --cov-report html --cov --doctest-modules;
+      py.test --cov-report html --cov --doctest-modules --cache-clear;
     else
-      pytest --cov-report html --cov --doctest-modules;
+      pytest --cov-report html --cov --doctest-modules --cache-clear;
     fi
 
 after_success:
