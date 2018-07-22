@@ -47,7 +47,7 @@ script:
     else
       pytest;
     fi
-  - coverage run --source=qtstyles setup.py test
+  - coverage run setup.py test
 
 after_success:
   - coveralls
