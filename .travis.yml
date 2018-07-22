@@ -45,10 +45,12 @@ script:
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
       py.test;
     else
-      pytest; 
-      coverage run -m pytest; # create the coverage report for py36
-      coverage report -m;
+      pytest;
     fi 
 
 after_success:
-  - coveralls
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
+      coverage run -m pytest; # create the coverage report for py36
+      coverage report -m;
+      coveralls
+    fi 
