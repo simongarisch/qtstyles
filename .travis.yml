@@ -1,7 +1,7 @@
 language: python
 
 python:
-#  - "2.7"
+  - "2.7"
   - "3.6"
 
 before_install:
@@ -10,13 +10,11 @@ before_install:
   
 install:
   # make sure that we have a Qt backend installed
-  #- if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-  #    pip install pyside;
-  #  else
-  #    pip install pyqt5;
-  #  fi
-  
-  - pip install pyqt5
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+      pip install pyside;
+    else
+      pip install pyqt5;
+    fi
   
   # also install requirements .txt
   - pip install -r requirements.txt
@@ -29,15 +27,12 @@ before_script:
   - sleep 3 # give xvfb some time to start
   
 script:
-  #- if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-  #    py.test;
-  #  else
-  #    pytest;
-  #  fi
-  - pytest --doctest-modules
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+      py.test --doctest-modules;
+    else
+      pytest --doctest-modules;
+    fi
 
 after_success:
   - pip install python-coveralls
-  - pip install codecov
   - coveralls
-  - codecov
