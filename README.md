@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/simongarisch/qtstyles.svg?branch=master)](https://travis-ci.org/simongarisch/qtstyles)
-[![Coverage Status](https://coveralls.io/repos/github/simongarisch/qtstyles/badge.svg?branch=master)](https://coveralls.io/github/simongarisch/qtstyles?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/simongarisch/qtstyles/badge.svg?branch=master&service=github)](https://coveralls.io/github/simongarisch/qtstyles?branch=master)
 
 # qtstyles
 A collection of Qt Style Sheets accompanied by useful classes. **Two ways** to change your Qt application style sheet:
