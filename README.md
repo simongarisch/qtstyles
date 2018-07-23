@@ -3,7 +3,17 @@
 [![PyPI version](https://badge.fury.io/py/qtstyles.svg)](https://badge.fury.io/py/qtstyles)
 
 # qtstyles
-A collection of Qt Style Sheets accompanied by useful classes. **Two ways** to change your Qt application style sheet:
+A collection of Qt Style Sheets accompanied by useful classes. 
+
+## Installation
+qtstyles is python 2 and 3 compatible.
+```bash
+pip install qtstyles
+```
+
+## Overview
+
+Provided are **Two ways** to change your Qt application style sheet:
 
 ## 1. With the StylePicker class
 
