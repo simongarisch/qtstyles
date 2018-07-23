@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name="qtstyles",
-      version="0.0.1",
+      version="0.0.2",
       install_requires=[
           "QtPy>=1.4.1"
         ],
