@@ -1,6 +1,25 @@
 /*
 https://github.com/openwebos/qt/blob/master/LICENSE.LGPL
 https://github.com/openwebos/qt/blob/master/examples/widgets/stylesheet/qss/pagefold.qss
+
+		  GNU LESSER GENERAL PUBLIC LICENSE
+
+ The Qt GUI Toolkit is Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies).
+ Contact: Nokia Corporation (qt-info@nokia.com)
+
+ You may use, distribute and copy the Qt GUI Toolkit under the terms of
+ GNU Lesser General Public License version 2.1, which is displayed below.
+
+-------------------------------------------------------------------------
+
+		  GNU LESSER GENERAL PUBLIC LICENSE
+		       Version 2.1, February 1999
+
+ Copyright (C) 1991, 1999 Free Software Foundation, Inc.
+ 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+...
 */
 
 /* Customize any plain widget that is a child of a QMainWindow. */

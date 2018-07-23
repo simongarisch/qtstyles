@@ -16,7 +16,7 @@ class StylePickerWidget(QtWidgets.QComboBox):
         self.setCurrentIndex(self.findText("default"))
         self.currentIndexChanged.connect(self.change_app_style)
 
-    def change_app_style(self, index=None):
+    def change_app_style(self):
         ''' this method fires when a new style is selected '''
         style = self.currentText()
         app = QtWidgets.QApplication.instance()
