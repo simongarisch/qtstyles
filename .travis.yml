@@ -26,7 +26,7 @@ install:
 
   # make sure that we have a Qt backend installed
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      conda install -c anaconda pyqt;
+      conda install pyqt;
     else
       pip install pyqt5;
     fi
