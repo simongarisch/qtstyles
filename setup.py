@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name="qtstyles",
-      version="0.0.2",
+      version="0.0.3",
       install_requires=[
           "QtPy>=1.4.1"
         ],
@@ -9,7 +9,7 @@ setup(name="qtstyles",
       long_description=open("README.md").read(),
 
       # https://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files
-	  package_data={"qtstyles": ["style_sheets/*.qss"]}, # include style sheets
+      package_data={"qtstyles": ["style_sheets/*.qss"]}, # include style sheets
       author="Simon Garisch",
       author_email="gatman946@gmail.com",
       url="https://github.com/simongarisch/qtstyles",
