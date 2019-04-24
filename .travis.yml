@@ -42,7 +42,7 @@ before_script:
   - sleep 3 # give xvfb some time to start
   
 script:
-  - pytest;
+  - python -m pytest
   - coverage run -m pytest
 
 after_success:
