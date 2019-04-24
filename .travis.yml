@@ -4,9 +4,7 @@ python:
   - "3.6"
   
 install:
-  # installing conda -> https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
   - sudo apt-get update
-  
   - pip install -U pip
   - pip install -r requirements.txt  # install requirements
   - python setup.py install          # install your package
