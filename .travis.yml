@@ -8,31 +8,10 @@ install:
   # installing conda -> https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
   - sudo apt-get update
   
-  # We do this conditionally because it saves us some downloading if the version is the same
-  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
-    else
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-    fi
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
-  - hash -r
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  
   - pip install -U pip
-  - python setup.py install # install your package
+  - pip install -r requirements.txt  # install requirements
+  - python setup.py install          # install your package
   - pip install coveralls
-
-  # make sure that we have a Qt backend installed
-  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      conda install pyqt;
-    else
-      pip install pyqt5;
-    fi
-  
-  # also install requirements .txt
-  - pip install -r requirements.txt
   
 before_script:
   # From the travis docs: https://docs.travis-ci.com/user/gui-and-headless-browsers/
