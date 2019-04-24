@@ -6,7 +6,6 @@
 A collection of Qt Style Sheets accompanied by useful classes. 
 
 ## Installation
-qtstyles is python 2 and 3 compatible.
 ```bash
 pip install qtstyles
 ```
