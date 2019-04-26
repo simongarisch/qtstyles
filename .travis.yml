@@ -13,8 +13,8 @@ install:
   - conda update -q conda
   
   - pip install -U pip
-  - pip install -r requirements.txt  # install requirements
   - python setup.py install          # install your package
+  - pip install -r requirements.txt  # install requirements
   - pip install coveralls
   
 before_script:
