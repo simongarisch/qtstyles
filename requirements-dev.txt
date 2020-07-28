@@ -1,0 +1,5 @@
+-r requirements.txt
+pytest==4.4.1
+pytest-qt==3.2.2
+tox==3.18.0
+flake8==3.8.3
