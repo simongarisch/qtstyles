@@ -1,14 +1,13 @@
 '''
-Defines only the StylePickerWidget class which inherits from QComboBox
+Defines only the StylePickerWidget class which inherits from QComboBox.
 '''
-
 from qtpy import QtWidgets
 from qtstyles.picker import StylePicker
 
 
 class StylePickerWidget(QtWidgets.QComboBox):
     ''' This QComboBox will allow the user to change the application
-        style sheet on demand '''
+        style sheet on demand. '''
     def __init__(self, parent=None):
         ''' constructor only takes the parent widget as an argument '''
         super(StylePickerWidget, self).__init__(parent)

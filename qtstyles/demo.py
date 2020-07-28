@@ -1,6 +1,6 @@
 '''
 Includes a run_demo() function that acts as a basic demo for our
-StylePicker and StylePickerWidget classes
+StylePicker and StylePickerWidget classes.
 '''
 
 import random
@@ -13,14 +13,15 @@ def run_demo(close_after=None, auto_test=False):
     '''
     Args:
     close_after: either None or integer. Number of seconds
-    after which the demo will close
+    after which the demo will close.
     auto_test: boolean. If true then randomly select a style at intervals.
 
-    This function provides a demonstration in changing the application style sheet.
+    This function provides a demonstration in changing the application
+    style sheet.
     1) The first option is to set the style sheet once with
        app.setStyleSheet(StylePicker("default").get_sheet())
-    2) The second option is to include a style picker widget (QComboBox) that'll
-       change the application style sheet when a new style is selected
+    2) The second option is to include a style picker widget (QComboBox)
+       that'll change the application style sheet when a new style is selected
        grid.addWidget(StylePickerWidget(), 2, 0)
     '''
 
@@ -50,13 +51,13 @@ def run_demo(close_after=None, auto_test=False):
     win.show()
 
     def choose_random_style():
-        ''' select a random style from the picker_widget '''
+        ''' Select a random style from the picker_widget. '''
         style_list = StylePicker().available_styles
         chosen_style = random.choice(style_list)
         picker_widget.setCurrentIndex(picker_widget.findText(chosen_style))
 
     def close_demo():
-        ''' close the demo once 'close_after' seconds have elapsed '''
+        ''' Close the demo once 'close_after' seconds have elapsed. '''
         win.close()
 
     if auto_test:
@@ -66,10 +67,11 @@ def run_demo(close_after=None, auto_test=False):
 
     if isinstance(close_after, int):
         close_timer = QtCore.QTimer()
-        close_timer.singleShot(close_after * 1000, close_demo) # seconds * 1000 = milliseconds
+        close_timer.singleShot(close_after * 1000, close_demo)
 
     app.setStyleSheet(StylePicker("default").get_sheet())
     app.exec_()
+
 
 """
 def main():

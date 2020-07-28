@@ -1,12 +1,12 @@
 '''
-Defines the following ...
+Defines -
 
-Sheet: a class representing a style sheet object with attributes such as path and contents
+Sheet: a class representing a style sheet object
+with attributes such as path and contents.
 
-get_style_sheets: a function that returns a dictionary with style sheet names as keys and
-sheet objects as values
+get_style_sheets: a function that returns a dictionary
+with style sheet names as keys and sheet objects as values.
 '''
-
 import os
 from qtstyles import errors
 
@@ -24,7 +24,7 @@ class Sheet(object):
     '''
     def __init__(self, path):
         ''' This constructor only takes one argument being the sheet path.
-            path = the path to a qss file... must be a string and end with '.qss'
+            path = style sheet file path ending with '.qss'.
         '''
         if not isinstance(path, str):
             raise errors.SheetPathTypeError
@@ -33,22 +33,22 @@ class Sheet(object):
         if not os.path.isfile(path):
             raise errors.SheetPathFileDoesntExist
         self._path = path
-        self._contents = None # to be loaded on request
+        self._contents = None  # to be loaded on request
 
     @property
     def path(self):
-        ''' collect the path as a sheet attribute '''
+        ''' Collect the path as a sheet attribute. '''
         return self._path
 
     @property
     def contents(self):
-        ''' the style sheet contents will load only once when needed '''
+        ''' The style sheet contents will load only once when needed. '''
         if self._contents is None:
             self._load_contents()
         return self._contents
 
     def _load_contents(self):
-        ''' loads the style sheet contents (if not already loaded) '''
+        ''' Loads the style sheet contents (if not already loaded). '''
         with open(self.path, "r") as qss_file:
             self._contents = qss_file.read()
 
@@ -56,13 +56,13 @@ class Sheet(object):
 def get_style_sheets():
     '''
     Returns a dictionary with the style sheet names as keys and
-    associated Sheet objects as values
+    associated Sheet objects as values.
     There must be a sheet called 'default' which is empty.
     >>> sheets = get_style_sheets()
     >>> isinstance(sheets, dict) # returns a dictionary
     True
-    >>> sheet_object = sheets["default"] # there should be a 'default.qss' sheet available
-    >>> sheet_object.path.endswith(".qss") # these should all be .qss files
+    >>> sheet_object = sheets["default"]
+    >>> sheet_object.path.endswith(".qss")
     True
     '''
     dirpath = os.path.dirname(os.path.abspath(__file__))
@@ -70,7 +70,8 @@ def get_style_sheets():
     sheets = {}
     for name in os.listdir(os.path.join(dirpath, "style_sheets")):
         if "__" in name:
-            # exclude any files with a double underscore (e.g. __init__, __pycache__)
+            # exclude any files with a double underscore
+            # (e.g. __init__, __pycache__)
             continue
         path = os.path.join(dirpath, "style_sheets", name)
         sheets[name.replace(".qss", "")] = Sheet(path)
