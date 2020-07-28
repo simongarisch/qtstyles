@@ -1,11 +1,11 @@
 '''
-test the StylePickerWidget class
+Test the StylePickerWidget class.
 '''
 from qtstyles import StylePicker, StylePickerWidget
 
 
 def test_displayed_styles(qtbot):
-    ''' test that all of the available styles are displayed '''
+    ''' Test that all of the available styles are displayed. '''
     picker = StylePicker()
     picker_widget = StylePickerWidget()
     qtbot.addWidget(picker_widget)
@@ -16,10 +16,9 @@ def test_displayed_styles(qtbot):
 
 
 def test_change_app_style(qtbot):
-    ''' check that the style gets updated '''
+    ''' Check that the style gets updated. '''
     picker_widget = StylePickerWidget()
     qtbot.addWidget(picker_widget)
     text = picker_widget.itemText(0)
     picker_widget.setCurrentIndex(0)
     assert picker_widget.currentText() == text
-        
