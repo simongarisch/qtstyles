@@ -1,5 +1,5 @@
 -r requirements.txt
-pytest==4.4.1
-pytest-qt==3.2.2
+pytest==5.4.3
+pytest-qt==3.3.0
 tox==3.18.0
 flake8==3.8.3
