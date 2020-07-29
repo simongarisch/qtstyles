@@ -11,6 +11,7 @@ before_script:
   # To run tests requiring a graphical user interface on Travis CI, use xvfb (X Virtual Framebuffer)
   # Also see: https://stackoverflow.com/questions/55674746/travis-sh-0-cant-open-etc-init-d-xvfb
   - export DISPLAY=:99.0
+  - export QT_DEBUG_PLUGINS=1
 
 install:
   - sudo apt-get update
